@@ -2,6 +2,7 @@
     import {quotes} from '$lib/quotes';
     import { fade } from 'svelte/transition';
     import photo from '$lib/assets/Taaheer-Labbe.jpg?enhanced'
+    import { resolve } from '$app/paths';
 
     let randomQuote = $state("");
 
@@ -123,7 +124,7 @@
             </a>
 
             <!-- Personal Website -->
-            <a href="/" target="_blank" class="flex items-center justify-between p-6 bg-zinc-900/50 rounded-2xl hover:bg-yellow-400 hover:text-black transition-all group">
+            <a href="{resolve('/')}" target="_blank" class="flex items-center justify-between p-6 bg-zinc-900/50 rounded-2xl hover:bg-yellow-400 hover:text-black transition-all group">
                 <div class="flex items-center gap-4">
                     <span class="text-2xl" title="Website">&#x1F3BC;</span> <!-- Musical Score Symbol -->
                     <span class="font-bold tracking-tight">Website</span>
