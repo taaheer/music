@@ -13,6 +13,10 @@ const config = {
         paths: {
             base: process.argv.includes('dev') ? '' : '/music'        
         }
-    } };
+    },
+            compilerOptions: {
+            runes: true
+            }
+ };
 
 export default config;
