@@ -1,16 +1,8 @@
-<script lang="ts">
-	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
-  	import { resolve } from '$app/paths';
+What are you doing here?
 
+This is restricted area, you are not suppposed to here.
 
-	let { children } = $props();
-</script>
+Well you not gonna find anything here other than this text.
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
-{@render children()}
+Here the link to go back at start <a href="taaheer.github.io">Click</a>
 
-<footer class="text-center bg-black p-1">
-	<a href="{resolve('/')}" class="text-yellow-300 flex items-center justify-center animate-bounce">𝄞</a>
-	<p class="block text-sm text-center text-yellow-200">© 2026 Taaheer Labbe. All Rights Reserved.</p>
-</footer>
