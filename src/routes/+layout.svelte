@@ -14,7 +14,7 @@
 	<div class="max-w-7xl mx-auto flex flex-col items-center gap-6">
 		<nav aria-label="Footer Navigation">
 			<a 
-				href="/" 
+				href="https://taaheer.github.io" 
 				class="text-yellow-300 flex items-center justify-center 
                        text-[clamp(2.5rem,8vw,4.5rem)] hover:scale-110 
                        transition-transform duration-300 motion-safe:animate-bounce"
