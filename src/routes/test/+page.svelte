@@ -1,11 +1,8 @@
-<script lang="ts">
-  import Background from '$lib/components/Background.svelte';
-</script>
+What are you doing here?
 
-<Background>
-  <section class="flex h-screen items-center justify-center text-center">
-    <h1 class="text-white text-5xl font-serif italic">
-      Resonance of wisdom in every note.
-    </h1>
-  </section>
-</Background>
+This is restricted area, you are not suppposed to here.
+
+Well you not gonna find anything here other than this text.
+
+Here the link to go back at start <a href="https://taaheer.github.io">Click</a>
+
