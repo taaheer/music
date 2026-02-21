@@ -3,6 +3,7 @@
     import {getRandomQuote} from '$lib/utils/quotes'
     import photo from '$lib/assets/Taaheer-Labbe.jpg?enhanced'
     import AudioPlayer from "$lib/components/AudioPlayer.svelte";
+    import SocialLinks from '$lib/components/SocialLinks.svelte';
     import music from '$lib/assets/Reject.wav'
     import Background from '$lib/components/Background.svelte'
 
@@ -139,20 +140,13 @@
             Ready to start a new project? Reach out through any of my channels below to discuss production, mixing, or collaboration.
         </p>
 
-        <!-- Fluid Contact Grid: Gap scales from 0.75rem to 1.5rem -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-[clamp(0.75rem,2vw,1.5rem)] mb-16">
-            {#each socials as item}
-            <a href={item.href} target="_blank" class="flex items-center justify-between p-[clamp(1rem,3vw,1.5rem)] bg-zinc-900/50 rounded-2xl hover:bg-yellow-400 hover:text-black transition-all group">
-                <div class="flex items-center gap-4">
-                    <span class="text-[clamp(1.25rem,2.5vw,1.75rem)]">{item.icon}</span>
-                    <span class="font-bold tracking-tight text-[clamp(0.9rem,2vw,1.1rem)]">{item.label}</span>
-                </div>
-                <span class="text-[clamp(0.6rem,1.5vw,0.75rem)] opacity-50 group-hover:opacity-100 italic truncate ml-4">
-                    {item.value}
-                </span>
-            </a>
-            {/each}
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {#each socials as social}
+            <SocialLinks {...social} />
+        {/each}
         </div>
+        
 
         <!-- Footer Decoration -->
         <div class="flex flex-col items-center gap-4">
