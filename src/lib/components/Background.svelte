@@ -15,8 +15,8 @@
       left: Math.random() * 100,
       size: Math.random() * 20 + 15,
       duration: Math.random() * 15 + 10,
-      delay: Math.random() * -20,
-      opacity: Math.random() * 3 + 0.1
+      delay: Math.random() * 40 - 20,
+      opacity: Math.random() * 0.6 + 0.1
     }))
   );
 </script>
@@ -49,8 +49,14 @@
 
 <style>
   @keyframes floatDrift {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    100% { transform: translate(0, -150px) rotate(0deg); opacity: 0; }
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translateY(-200px) rotate(10deg); opacity: 0; }
   }
-  .float-note { animation: floatDrift infinite linear; }
+  
+  .float-note { 
+    animation: floatDrift infinite linear; 
+    will-change: transform, opacity;
+  }
 </style>

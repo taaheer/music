@@ -11,7 +11,7 @@
     {href} 
     target="_blank" 
     rel="noopener noreferrer"
-    class="flex items-center justify-between p-[clamp(1rem,3vw,1.5rem)] bg-zinc-900/50 rounded-2xl hover:bg-yellow-400 hover:text-black transition-all group border border-white/5"
+    class="flex items-center justify-between p-[clamp(1rem,3vw,1.5rem)] bg-zinc-900/50 rounded-2xl hover:bg-yellow-400 hover:text-black transition-all group border border-white/5 backdrop-blur-[2px]"
 >
     <div class="flex items-center gap-4">
         <span class="text-[clamp(1.25rem,2.5vw,1.75rem)]" role="img" aria-label={label}>

@@ -12,3 +12,8 @@
 
 <Footer></Footer>
 
+<style>
+    :global(body) {
+        -webkit-font-smoothing: antialiased;
+    }
+</style>

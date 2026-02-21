@@ -3,12 +3,22 @@
     import {getRandomQuote} from '$lib/utils/quotes'
     import photo from '$lib/assets/Taaheer-Labbe.jpg?enhanced'
     import AudioPlayer from "$lib/components/AudioPlayer.svelte";
+    import { socials } from '$lib/constants/socials';
     import SocialLinks from '$lib/components/SocialLinks.svelte';
     import music from '$lib/assets/Reject.wav'
     import Background from '$lib/components/Background.svelte'
 
-    import { slide } from 'svelte/transition';
+    import note40 from '$lib/assets/Close-Grand-40.wav';
+    import note50 from '$lib/assets/Close-Grand-50.wav';
+    import note60 from '$lib/assets/Close-Grand-60.wav';
+    import note70 from '$lib/assets/Close-Grand-70.wav';
 
+    const notes = [
+        { icon: '♩', file: note40 },
+        { icon: '♪', file: note50 },
+        { icon: '♫', file: note60 },
+        { icon: '♬', file: note70 }
+    ];
 
     let randomQuote = $state("");
     let isPlayerVisible = $state(false);
@@ -18,27 +28,16 @@
         randomQuote = getRandomQuote(quotes);
     })
     
-  const notes = [
-    { icon: '♩', file: 'Close-Grand-40.wav' },
-    { icon: '♪', file: 'Close-Grand-50.wav' },
-    { icon: '♫', file: 'Close-Grand-60.wav' },
-    { icon: '♬', file: 'Close-Grand-70.wav' }
-  ];
 
     function playNote(filename: string) {
     // Note: Place your .wav files in the /static folder
-    const audio = new Audio(`/${filename}`);
+    const audio = new Audio(filename);
     audio.currentTime = 0; // Reset if clicked rapidly
     audio.play().catch(err => console.error("Playback blocked:", err));
   }
 
 
-    const socials = [
-        { href: "mailto:taaheerlabbe@gmail.com", icon: "📧", label: "Email", value: "taaheerlabbe@gmail.com" },
-        { href: "https://linkedin.com/in/taaheer-labbe", icon: "💼", label: "LinkedIn", value: "taaheer-labbe" },
-        { href: "https://www.youtube.com/@TaaheerLabbe", icon: "🎥", label: "YouTube", value: "@TaaheerLabbe" },
-        { href: "https://taaheer.github.io", icon: "🎼", label: "Website", value: "taaheer.github.io" }
-    ];
+
 </script>
 
 <AudioPlayer bind:isVisible={isPlayerVisible} src={music}/>
@@ -126,7 +125,7 @@
 <Background>
     <div class="relative mx-auto max-w-4xl px-6 text-center">
         <!-- Play Status -->
-        <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 text-[clamp(0.7rem,1.5vw,0.8rem)] font-mono mb-8 uppercase tracking-widest">
+        <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 text-[clamp(0.7rem,1.5vw,0.8rem)] font-mono mb-8 uppercase tracking-widest backdrop-blur-[2px]">
             <span class="text-[clamp(0.8rem,2vw,1rem)]">&#x23F5;</span> 
             Ready to Collaborate
         </div>
@@ -158,9 +157,3 @@
 </section>
 
 
-<style>
-    /* Optional: Smooth font smoothing for dark backgrounds */
-    :global(body) {
-        -webkit-font-smoothing: antialiased;
-    }
-</style>

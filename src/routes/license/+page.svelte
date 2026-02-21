@@ -1,5 +1,6 @@
 <script lang="ts">
     import Background from '$lib/components/Background.svelte';
+    import { socials } from '$lib/constants/socials';
 
     const categories = [
         {
@@ -32,8 +33,8 @@
 </script>
 
 <div class="bg-black min-h-screen text-zinc-300 font-light">
-    <header class="py-20 border-b border-white/5">
-        <Background>
+<Background>
+    <header>
             <div class="max-w-4xl mx-auto px-6 text-center">
                 <h1 class="text-white text-[clamp(2rem,5vw,4rem)] font-bold italic tracking-tighter mb-4">
                     Licensing Standards
@@ -42,7 +43,6 @@
                     Legal Transparency & Usage Rights
                 </p>
             </div>
-        </Background>
     </header>
 
     <main class="max-w-4xl mx-auto px-6 py-16">
@@ -56,7 +56,7 @@
                     
                     <div class="grid md:grid-cols-2 gap-8">
                         {#each category.items as item}
-                            <div class="bg-zinc-900/30 p-8 rounded-2xl border border-white/5 hover:border-yellow-400/30 transition-colors">
+                            <div class="bg-zinc-900/30 p-8 rounded-2xl border border-white/5 hover:border-yellow-400/30 transition-colors backdrop-blur-[2px]">
                                 <h3 class="text-yellow-400 font-bold mb-3">{item.label}</h3>
                                 <p class="leading-relaxed text-sm">{item.desc}</p>
                             </div>
@@ -67,7 +67,7 @@
         </section>
 
         <section class="mt-24 space-y-12">
-            <div class="bg-zinc-900/50 p-10 rounded-3xl border border-white/10">
+            <div class="bg-zinc-900/50 p-10 rounded-3xl border border-white/10 backdrop-blur-[2px]">
                 <h2 class="text-white text-3xl font-bold mb-6 italic">The Production Process</h2>
                 
                 <div class="space-y-6">
@@ -86,15 +86,16 @@
                 </div>
             </div>
 
-            <div class="p-6 border-l-2 border-yellow-400 bg-yellow-400/5 text-sm italic">
+            <div class="p-6 border-l-2 border-yellow-400 bg-yellow-400/5 text-sm italic backdrop-blur-[2px]">
                 Note: Buying a "License" does not mean you own the Copyright. Copyright remains with Taaheer Labbe unless a full "Buyout" agreement is signed.
             </div>
         </section>
     </main>
+</Background>
 
     <footer class="py-20 text-center border-t border-white/5">
         <p class="mb-4">Need a specific contract for a film or game?</p>
-        <a href="mailto:taaheerlabbe@gmail.com" class="text-yellow-400 hover:text-white underline underline-offset-8 transition-colors">
+        <a href="{socials.find(s => s.label === "Email")?.href}" class="text-yellow-400 hover:text-white underline underline-offset-8 transition-colors">
             Request a Custom Agreement
         </a>
     </footer>
