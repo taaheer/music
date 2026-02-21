@@ -1,7 +1,8 @@
 <script lang="ts">
     import {quotes} from '$lib/quotes';
+    import {getRandomQuote} from '$lib/utils/quotes'
     import photo from '$lib/assets/Taaheer-Labbe.jpg?enhanced'
-    import 'player.style/tailwind-audio';
+    import AudioPlayer from "$lib/components/AudioPlayer.svelte";
     import music from '$lib/assets/Reject.wav'
     import Background from '$lib/components/Background.svelte'
 
@@ -9,17 +10,12 @@
 
 
     let randomQuote = $state("");
+    let isPlayerVisible = $state(false);
 
-    const lastIndexStr = sessionStorage.getItem('lastQuoteIndex');
-    const lastIndex = lastIndexStr ? parseInt(lastIndexStr) : -1;
 
-    let newIndex: number;
-    do{
-        newIndex = Math.floor(Math.random() * quotes.length)
-    } while (newIndex === lastIndex && quotes.length > 1);
-
-    sessionStorage.setItem('lastQuoteIndex', newIndex.toString());
-    randomQuote = quotes[newIndex]
+    $effect(() => {
+        randomQuote = getRandomQuote(quotes);
+    })
     
   const notes = [
     { icon: '♩', file: 'Close-Grand-40.wav' },
@@ -42,64 +38,9 @@
         { href: "https://www.youtube.com/@TaaheerLabbe", icon: "🎥", label: "YouTube", value: "@TaaheerLabbe" },
         { href: "https://taaheer.github.io", icon: "🎼", label: "Website", value: "taaheer.github.io" }
     ];
-
-  let isPlayerVisible = $state(false);
-  let audioPlayer = $state<HTMLAudioElement>();
-
-  function handleListen() {
-    isPlayerVisible = true;
-    // Timeout ensures the element exists in DOM before calling play()
-    setTimeout(() => {
-      audioPlayer?.play();
-    }, 50);
-  }
-
-  function handleClose() {
-    audioPlayer?.pause();
-    isPlayerVisible = false;
-  }
-
 </script>
 
-{#if isPlayerVisible}
-  <div 
-    transition:slide={{ axis: 'y', duration: 400 }}
-    class="fixed bottom-0 left-0 w-full z-50 bg-black/90 border-t border-white/10 backdrop-blur-md"
-  >
-    <div class="relative max-w-7xl mx-auto px-[clamp(1rem,4vw,3rem)] py-[clamp(0.5rem,2vw,1.5rem)]">
-      <!-- Close Button -->
-      <button 
-        onclick={handleClose}
-        class="absolute -top-10 right-4 p-2 bg-yellow-300 rounded-full text-black hover:bg-white transition-colors shadow-lg"
-        aria-label="Close Player"
-      >
-        <svg xmlns="http://www.w3.org" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-
-      <media-theme-tailwind-audio
-        style="--media-primary-color: transparent; --media-secondary-color: transparent; --media-accent-color: oklch(85.2% 0.199 91.936); width: 100%;"
-      >
-        <audio
-          bind:this={audioPlayer}
-          slot="media"
-        src="{music}"
-          playsinline
-          crossorigin="anonymous"
-        ></audio>
-      </media-theme-tailwind-audio>
-    </div>
-  </div>
-
-{/if}
-
-
-
-
-
-
+<AudioPlayer bind:isVisible={isPlayerVisible} src={music}/>
 
 <header class="relative overflow-hidden bg-black">
 <Background>
@@ -128,7 +69,7 @@
             <div>
                 <!-- Update link to button to prevent page jump and trigger handleListen -->
                 <button 
-                    onclick={handleListen}
+                    onclick={() => isPlayerVisible = true}
                     class="group relative inline-flex items-center gap-3 rounded-full bg-yellow-300 px-[clamp(1.5rem,3vw,2.5rem)] py-[clamp(0.75rem,1.5vw,1rem)] text-center font-bold text-black transition-all hover:bg-white hover:scale-105 active:scale-95"
                 >
                     <span class="text-2xl leading-none group-hover:animate-ping">&#x266B;</span>
@@ -169,7 +110,7 @@
                 <p class="flex items-start">
                     <span class="text-yellow-300/60 mr-3 text-[clamp(1.1rem,2vw,1.4rem)] mt-1">&#x1D101;</span>
                     <span>
-                        Music is more than just beat and harmony. Just like Writing and Acting, it's about telling a story—a story that words can't <span class="text-white font-normal">describe</span>, but with music, you can feel it.
+                        Music is more than just beat and harmony. Just like Writing and Acting, it's about telling a story, a story that words can't <span class="text-white font-normal">describe</span>, but with music, you can feel it.
                     </span>
                 </p>
             </div>

@@ -1,8 +1,8 @@
-What are you doing here?
+<script lang="ts">
+    import AudioPlayer from "$lib/components/AudioPlayer.svelte";
+    import Music from '$lib/assets/Reject.wav'
 
-This is restricted area, you are not suppposed to here.
+    let isPlayerVisible = $state(true);
+</script>
 
-Well you not gonna find anything here other than this text.
-
-Here the link to go back at start <a href="https://taaheer.github.io">Click</a>
-
+<AudioPlayer bind:isVisible={isPlayerVisible} src={Music}></AudioPlayer>
