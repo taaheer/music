@@ -1,5 +1,7 @@
 <script lang="ts">
-    import { page } from '$app/stores';
+    import { page } from '$app/state'; 
+    import { resolve } from "$app/paths";
+
     import Background from '$lib/components/Background.svelte';
 </script>
 
@@ -20,10 +22,10 @@
                     <div class="text-yellow-400 text-5xl">⚠</div>
                     <div>
                         <h1 class="text-white text-2xl font-bold mb-1">
-                            Status: {$page.status}
+                            Status: {page.status} <!-- Removed $ -->
                         </h1>
                         <p class="text-zinc-400 text-sm">
-                            {#if $page.status === 404}
+                            {#if page.status === 404}
                                 ERROR_CODE: NULL_POINTER_EXCEPTION // Path not found in library.
                             {:else}
                                 ERROR_CODE: INTERNAL_SIGNAL_FAILURE // System dissonance.
@@ -34,18 +36,19 @@
 
                 <div class="bg-black/50 rounded p-6 mb-8 border border-white/5 space-y-2 text-xs text-zinc-500">
                     <p><span class="text-zinc-700">[{new Date().toISOString()}]</span> Initializing request...</p>
-                    <p><span class="text-zinc-700">[{new Date().toISOString()}]</span> Fetching asset from: <span class="text-yellow-400/70">{$page.url.pathname}</span></p>
+                    <p><span class="text-zinc-700">[{new Date().toISOString()}]</span> Fetching asset from: <span class="text-yellow-400/70">{page.url.pathname}</span></p>
                     <p class="text-red-400/80"><span class="text-zinc-700">[{new Date().toISOString()}]</span> Signal Lost. Source file missing or moved.</p>
                 </div>
 
                 <div class="flex flex-wrap gap-4">
                     <a 
-                        href="/" 
+                        href="{resolve('/')}" 
                         class="px-6 py-2 bg-yellow-400 text-black text-xs font-bold uppercase tracking-wider rounded hover:bg-white transition-all"
                     >
                         Return to Master
                     </a>
                     <button 
+                        type="button"
                         onclick={() => history.back()}
                         class="px-6 py-2 border border-white/20 text-white text-xs font-bold uppercase tracking-wider rounded hover:bg-white/10 transition-all"
                     >

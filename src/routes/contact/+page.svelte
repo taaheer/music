@@ -38,45 +38,16 @@
                     Let's talk <span class="text-transparent bg-clip-text bg-linear-to-b from-white to-zinc-600">Sound.</span>
                 </h1>
                 <p class="text-zinc-500 text-lg max-w-2xl font-light">
-                    Have a project in mind or just want to connect? Choose the channel that fits your inquiry best.
+                    Have a project in mind or just want to connect?
                 </p>
             </header>
 
-            <div class="grid gap-16">
-                {#each channels as category}
-                    <section>
-                        <h2 class="text-zinc-600 text-xs uppercase tracking-[0.4em] font-bold mb-8 flex items-center gap-4">
-                            {category.title}
-                            <div class="h-px grow bg-white/5"></div>
-                        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {#each socials as social}
+            <SocialLinks {...social} />
+        {/each}
+        </div>
 
-                        <div class="grid md:grid-cols-2 gap-6">
-                            {#each category.links as link}
-                                <a 
-                                    href={link.href} 
-                                    target="_blank"
-                                    class="group relative p-8 bg-zinc-900/30 rounded-3xl border border-white/5 hover:border-yellow-400/40 hover:bg-zinc-900/50 transition-all duration-500"
-                                >
-                                    <div class="flex items-start justify-between mb-4">
-                                        <span class="text-3xl grayscale group-hover:grayscale-0 transition-all">{link.icon}</span>
-                                        <span class="text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
-                                    </div>
-                                    
-                                    <h3 class="text-xl font-bold text-white mb-1">{link.label}</h3>
-                                    <p class="text-zinc-500 text-sm font-light mb-4 leading-relaxed italic">
-                                        {link.desc}
-                                    </p>
-                                    <div class="text-xs font-mono text-zinc-400 group-hover:text-white transition-colors">
-                                        {link.value}
-                                    </div>
-                                </a>
-                            {/each}
-                        </div>
-                    </section>
-                {/each}
-            </div>
-
-            
 
             <footer class="mt-32 text-center">
                 <div class="w-px h-24 bg-linear-to-b from-yellow-400 to-transparent mx-auto mb-8"></div>

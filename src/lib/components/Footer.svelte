@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { resolve } from "$app/paths";
+
     const currentYear = 2026; // Static as requested for 2026
     
     const links = [
@@ -19,7 +21,7 @@
         
         <nav aria-label="Footer Navigation" class="mb-8">
             <a 
-                href="/" 
+                href="{resolve('/')}" 
                 class="text-yellow-400 flex items-center justify-center 
                        text-[clamp(4rem,12vw,6rem)] hover:scale-110 
                        transition-transform duration-500 motion-safe:animate-pulse"
@@ -59,7 +61,7 @@
                 Taaheer Labbe
             </p>
             <p class="text-[clamp(0.7rem,1.2vw,0.8rem)] font-mono opacity-40 uppercase tracking-widest">
-                © {currentYear} • Designed for Resonance
+                © {currentYear} ©
             </p>
         </div>
     </div>
