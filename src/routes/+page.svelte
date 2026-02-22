@@ -75,8 +75,25 @@
                     <span class="text-2xl leading-none group-hover:animate-ping">&#x266B;</span>
                     <span class="text-[clamp(0.875rem,1.2vw,1.125rem)]">Listen Now</span>
                 </button>
+                
             </div>            
         </div>
+        <a 
+            href="/portfolio" 
+            class="group relative mt-8 flex flex-col items-center gap-2 text-white/50 transition-colors hover:text-yellow-400"
+        >
+            <!-- Top line decoration -->
+            <span class="h-px w-12 bg-white/20 transition-all group-hover:w-24 group-hover:bg-yellow-400"></span>
+            
+            <span class="text-[clamp(0.75rem,1.2vw,0.875rem)] font-medium uppercase tracking-[0.3em]">
+                Explore Portfolio
+            </span>
+            
+            <!-- Subtle musical symbol that appears on hover -->
+            <span class="absolute -bottom-6 opacity-0 transition-all duration-500 group-hover:-bottom-6 group-hover:opacity-100 text-lg">
+                𝄢
+            </span>
+        </a>
     </section>
 </Background>
 </header>
