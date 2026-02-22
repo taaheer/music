@@ -2,23 +2,6 @@
     import Background from "$lib/components/Background.svelte";
     import { socials } from "$lib/constants/socials";
     import SocialLinks from "$lib/components/SocialLinks.svelte";
-
-    const channels = [
-        { 
-            title: "Professional", 
-            links: [
-                { label: "LinkedIn", value: "taaheer-labbe", icon: "💼", desc: "For career opportunities, networking, and industry-related inquiries.", href: "https://linkedin.com/in/taaheer-labbe" },
-                { label: "Email", value: "taaheerlabbe@gmail.com", icon: "📧", desc: "Best for project briefs, licensing questions, and formal proposals.", href: "mailto:taaheerlabbe@gmail.com" }
-            ]
-        },
-        { 
-            title: "Creative", 
-            links: [
-                { label: "YouTube", value: "@TaaheerLabbe", icon: "🎥", desc: "Check out my production process, tutorials, and music videos.", href: "https://www.youtube.com/@TaaheerLabbe" },
-                { label: "Portfolio", value: "View Archive", icon: "🎼", desc: "Explore my past works and musical evolution.", href: "portfolio" }
-            ]
-        }
-    ];
 </script>
 
 <Background>
