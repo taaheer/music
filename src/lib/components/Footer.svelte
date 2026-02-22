@@ -4,9 +4,9 @@
     const currentYear = 2026; // Static as requested for 2026
     
     const links = [
-        { label: "Portfolio", href: "/portfolio" },
-        { label: "Licensing", href: "/license" },
-        { label: "Contact", href: "/contact" }
+        { label: "Portfolio", href: resolve('/portfolio')},
+        { label: "Licensing", href: resolve('/license') },
+        { label: "Contact", href: resolve('/contact') }
     ];
 
     const socials = [
@@ -21,7 +21,7 @@
         
         <nav aria-label="Footer Navigation" class="mb-8">
             <a 
-                href="{resolve('/')}" 
+                href={resolve('/')} 
                 class="text-yellow-400 flex items-center justify-center 
                        text-[clamp(4rem,12vw,6rem)] hover:scale-110 
                        transition-transform duration-500 motion-safe:animate-pulse"

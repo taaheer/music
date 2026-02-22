@@ -7,6 +7,7 @@
     import SocialLinks from '$lib/components/SocialLinks.svelte';
     import music from '$lib/assets/Reject.wav'
     import Background from '$lib/components/Background.svelte'
+    import { resolve } from '$app/paths'
 
     import note40 from '$lib/assets/Close-Grand-40.wav';
     import note50 from '$lib/assets/Close-Grand-50.wav';
@@ -79,7 +80,7 @@
             </div>            
         </div>
         <a 
-            href="/portfolio" 
+            href={resolve('/portfolio')} 
             class="group relative mt-8 flex flex-col items-center gap-2 text-white/50 transition-colors hover:text-yellow-400"
         >
             <!-- Top line decoration -->

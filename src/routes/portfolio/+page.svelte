@@ -3,6 +3,7 @@
     import ProjectCard from '$lib/components/ProjectCard.svelte';
     import AudioPlayer from '$lib/components/AudioPlayer.svelte';
     import { projects } from '$lib/constants/projects';
+    import { resolve } from '$app/paths';
 
     let activeFilter = $state("All");
     let currentAudio = $state("");
@@ -60,7 +61,7 @@
     
     <section class="py-32 text-center border-t border-white/5">
         <h2 class="text-3xl font-bold mb-6">Inspired by what you hear?</h2>
-        <a href="/contact" class="inline-block px-10 py-4 bg-white text-black font-bold rounded-full hover:bg-yellow-400 transition-colors">
+        <a href={resolve('/contact')} class="inline-block px-10 py-4 bg-white text-black font-bold rounded-full hover:bg-yellow-400 transition-colors">
             Start a New Project
         </a>
     </section>
