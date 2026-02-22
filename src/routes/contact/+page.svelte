@@ -15,7 +15,7 @@
             title: "Creative", 
             links: [
                 { label: "YouTube", value: "@TaaheerLabbe", icon: "🎥", desc: "Check out my production process, tutorials, and music videos.", href: "https://www.youtube.com/@TaaheerLabbe" },
-                { label: "Portfolio", value: "View Archive", icon: "🎼", desc: "Explore my past works and musical evolution.", href: "/portfolio" }
+                { label: "Portfolio", value: "View Archive", icon: "🎼", desc: "Explore my past works and musical evolution.", href: "portfolio" }
             ]
         }
     ];
