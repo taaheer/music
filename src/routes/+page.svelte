@@ -5,7 +5,7 @@
     import AudioPlayer from "$lib/components/AudioPlayer.svelte";
     import { socials } from '$lib/constants/socials';
     import SocialLinks from '$lib/components/SocialLinks.svelte';
-    import music from '$lib/assets/Reject.wav'
+    import music from '$lib/assets/portfolio/childhood.flac'
     import Background from '$lib/components/Background.svelte'
     import { resolve } from '$app/paths'
 

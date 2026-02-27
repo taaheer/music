@@ -7,9 +7,10 @@
     let audioPlayer = $state<HTMLAudioElement>();
 
     $effect(() => {
-        if(isVisible && audioPlayer){
+        if (isVisible && audioPlayer && src) {
+            audioPlayer.load(); 
             audioPlayer.play().catch(err => console.error("Playback blocked:", err));
-        } else if(!isVisible && audioPlayer){
+        } else if (!isVisible && audioPlayer) {
             audioPlayer.pause();
         }
     });
